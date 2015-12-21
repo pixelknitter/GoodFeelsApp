@@ -6,8 +6,10 @@
 //  Copyright © 2015 NinjaSudo LLC. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class MessagesViewController: UIViewController {
+    @IBOutlet weak var messagesTableView: UITableView!
+    @IBOutlet weak var selectContactsButton: UIButton!
 
 }

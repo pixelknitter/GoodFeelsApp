@@ -6,8 +6,10 @@
 //  Copyright © 2015 NinjaSudo LLC. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class ContactsViewController: UIViewController {
+    @IBOutlet weak var contactsTableView: UITableView!
+    @IBOutlet weak var sendMessageButton: UIButton!
 
 }
