@@ -20,6 +20,14 @@
 		2CED23431C28A466008752E8 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23421C28A466008752E8 /* ContactsViewController.swift */; };
 		2CED23461C28A4FC008752E8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23451C28A4FC008752E8 /* NameViewController.swift */; };
 		2CED23481C28A50C008752E8 /* hprummonitor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23471C28A50C008752E8 /* hprummonitor.plist */; };
+		2CED23521C28C2BB008752E8 /* MessageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23511C28C2BB008752E8 /* MessageClient.swift */; };
+		2CED23541C28C2DE008752E8 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23531C28C2DE008752E8 /* ContactsManager.swift */; };
+		2CED23561C28C350008752E8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23551C28C350008752E8 /* Contact.swift */; };
+		2CED23581C28C35D008752E8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23571C28C35D008752E8 /* Message.swift */; };
+		2CED235A1C28C393008752E8 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23591C28C393008752E8 /* ContactCell.swift */; };
+		2CED235C1C28C3C0008752E8 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED235B1C28C3C0008752E8 /* MessageCell.swift */; };
+		2CED235E1C28C3E2008752E8 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CED235D1C28C3E2008752E8 /* ContactCell.xib */; };
+		2CED23601C28C40A008752E8 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CED235F1C28C40A008752E8 /* MessageCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +47,14 @@
 		2CED23451C28A4FC008752E8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameViewController.swift; path = ViewControllers/NameViewController.swift; sourceTree = "<group>"; };
 		2CED23471C28A50C008752E8 /* hprummonitor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hprummonitor.plist; path = "Supporting Files/hprummonitor.plist"; sourceTree = "<group>"; };
 		2CED234A1C28A587008752E8 /* GoodFeels-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoodFeels-Bridging-Header.h"; sourceTree = "<group>"; };
+		2CED23511C28C2BB008752E8 /* MessageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageClient.swift; path = Clients/MessageClient.swift; sourceTree = "<group>"; };
+		2CED23531C28C2DE008752E8 /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsManager.swift; path = Clients/ContactsManager.swift; sourceTree = "<group>"; };
+		2CED23551C28C350008752E8 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = Models/Contact.swift; sourceTree = "<group>"; };
+		2CED23571C28C35D008752E8 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		2CED23591C28C393008752E8 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Views/ContactCell.swift; sourceTree = "<group>"; };
+		2CED235B1C28C3C0008752E8 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = Views/MessageCell.swift; sourceTree = "<group>"; };
+		2CED235D1C28C3E2008752E8 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactCell.xib; path = Views/ContactCell.xib; sourceTree = "<group>"; };
+		2CED235F1C28C40A008752E8 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageCell.xib; path = Views/MessageCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +94,7 @@
 			children = (
 				2CED23441C28A495008752E8 /* Storyboards */,
 				2CED233F1C28A3ED008752E8 /* Supporting FIles */,
+				2CED234E1C28C271008752E8 /* Clients */,
 				2CED233E1C28A3CC008752E8 /* Views */,
 				2CED233D1C28A3C6008752E8 /* Models */,
 				2CED233C1C28A3BF008752E8 /* ViewControllers */,
@@ -122,6 +139,8 @@
 		2CED233D1C28A3C6008752E8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2CED23551C28C350008752E8 /* Contact.swift */,
+				2CED23571C28C35D008752E8 /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -129,6 +148,10 @@
 		2CED233E1C28A3CC008752E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2CED23591C28C393008752E8 /* ContactCell.swift */,
+				2CED235D1C28C3E2008752E8 /* ContactCell.xib */,
+				2CED235B1C28C3C0008752E8 /* MessageCell.swift */,
+				2CED235F1C28C40A008752E8 /* MessageCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -150,6 +173,15 @@
 				2CED23171C27B2EF008752E8 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		2CED234E1C28C271008752E8 /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				2CED23531C28C2DE008752E8 /* ContactsManager.swift */,
+				2CED23511C28C2BB008752E8 /* MessageClient.swift */,
+			);
+			name = Clients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,8 +243,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CED23191C27B2EF008752E8 /* LaunchScreen.storyboard in Resources */,
+				2CED23601C28C40A008752E8 /* MessageCell.xib in Resources */,
 				2CED23481C28A50C008752E8 /* hprummonitor.plist in Resources */,
 				2CED23161C27B2EF008752E8 /* Assets.xcassets in Resources */,
+				2CED235E1C28C3E2008752E8 /* ContactCell.xib in Resources */,
 				2CED23141C27B2EF008752E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,10 +258,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CED235A1C28C393008752E8 /* ContactCell.swift in Sources */,
+				2CED235C1C28C3C0008752E8 /* MessageCell.swift in Sources */,
+				2CED23521C28C2BB008752E8 /* MessageClient.swift in Sources */,
 				2CED23411C28A441008752E8 /* MessagesViewController.swift in Sources */,
 				2CED23431C28A466008752E8 /* ContactsViewController.swift in Sources */,
 				2CED230F1C27B2EF008752E8 /* AppDelegate.swift in Sources */,
 				2CED23461C28A4FC008752E8 /* NameViewController.swift in Sources */,
+				2CED23581C28C35D008752E8 /* Message.swift in Sources */,
+				2CED23541C28C2DE008752E8 /* ContactsManager.swift in Sources */,
+				2CED23561C28C350008752E8 /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
