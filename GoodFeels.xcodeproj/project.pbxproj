@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1877281C346C7100F129B7 /* GoodFeelsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */; };
 		2CED230F1C27B2EF008752E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED230E1C27B2EF008752E8 /* AppDelegate.swift */; };
 		2CED23141C27B2EF008752E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23121C27B2EF008752E8 /* Main.storyboard */; };
 		2CED23161C27B2EF008752E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23151C27B2EF008752E8 /* Assets.xcassets */; };
@@ -20,17 +21,15 @@
 		2CED23431C28A466008752E8 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23421C28A466008752E8 /* ContactsViewController.swift */; };
 		2CED23461C28A4FC008752E8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23451C28A4FC008752E8 /* NameViewController.swift */; };
 		2CED23481C28A50C008752E8 /* hprummonitor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23471C28A50C008752E8 /* hprummonitor.plist */; };
-		2CED23521C28C2BB008752E8 /* MessageClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23511C28C2BB008752E8 /* MessageClient.swift */; };
+		2CED23521C28C2BB008752E8 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23511C28C2BB008752E8 /* MessageManager.swift */; };
 		2CED23541C28C2DE008752E8 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23531C28C2DE008752E8 /* ContactsManager.swift */; };
-		2CED23561C28C350008752E8 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23551C28C350008752E8 /* Contact.swift */; };
-		2CED23581C28C35D008752E8 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23571C28C35D008752E8 /* Message.swift */; };
 		2CED235A1C28C393008752E8 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23591C28C393008752E8 /* ContactCell.swift */; };
 		2CED235C1C28C3C0008752E8 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED235B1C28C3C0008752E8 /* MessageCell.swift */; };
-		2CED235E1C28C3E2008752E8 /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CED235D1C28C3E2008752E8 /* ContactCell.xib */; };
-		2CED23601C28C40A008752E8 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CED235F1C28C40A008752E8 /* MessageCell.xib */; };
+		D96A0FD43DE6D862D5BE3758 /* Pods_GoodFeels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614E24F6E8ABAF8B93E3FDA4 /* Pods_GoodFeels.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoodFeelsClient.swift; path = Clients/GoodFeelsClient.swift; sourceTree = "<group>"; };
 		2CED230B1C27B2EF008752E8 /* GoodFeels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodFeels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CED230E1C27B2EF008752E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CED23131C27B2EF008752E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -47,14 +46,13 @@
 		2CED23451C28A4FC008752E8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameViewController.swift; path = ViewControllers/NameViewController.swift; sourceTree = "<group>"; };
 		2CED23471C28A50C008752E8 /* hprummonitor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hprummonitor.plist; path = "Supporting Files/hprummonitor.plist"; sourceTree = "<group>"; };
 		2CED234A1C28A587008752E8 /* GoodFeels-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoodFeels-Bridging-Header.h"; sourceTree = "<group>"; };
-		2CED23511C28C2BB008752E8 /* MessageClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageClient.swift; path = Clients/MessageClient.swift; sourceTree = "<group>"; };
+		2CED23511C28C2BB008752E8 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageManager.swift; path = Clients/MessageManager.swift; sourceTree = "<group>"; };
 		2CED23531C28C2DE008752E8 /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsManager.swift; path = Clients/ContactsManager.swift; sourceTree = "<group>"; };
-		2CED23551C28C350008752E8 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Contact.swift; path = Models/Contact.swift; sourceTree = "<group>"; };
-		2CED23571C28C35D008752E8 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		2CED23591C28C393008752E8 /* ContactCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactCell.swift; path = Views/ContactCell.swift; sourceTree = "<group>"; };
 		2CED235B1C28C3C0008752E8 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageCell.swift; path = Views/MessageCell.swift; sourceTree = "<group>"; };
-		2CED235D1C28C3E2008752E8 /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ContactCell.xib; path = Views/ContactCell.xib; sourceTree = "<group>"; };
-		2CED235F1C28C40A008752E8 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MessageCell.xib; path = Views/MessageCell.xib; sourceTree = "<group>"; };
+		3EF29CE25001AED39A0A839A /* Pods-GoodFeels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodFeels.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoodFeels/Pods-GoodFeels.debug.xcconfig"; sourceTree = "<group>"; };
+		614E24F6E8ABAF8B93E3FDA4 /* Pods_GoodFeels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodFeels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91F30CCE043BB9A20ACF7714 /* Pods-GoodFeels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodFeels.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoodFeels/Pods-GoodFeels.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +65,7 @@
 				2CED23321C27BBB8008752E8 /* SystemConfiguration.framework in Frameworks */,
 				2CED23301C27BBB0008752E8 /* CoreTelephony.framework in Frameworks */,
 				2CED232A1C27B846008752E8 /* AppPulsemobile.framework in Frameworks */,
+				D96A0FD43DE6D862D5BE3758 /* Pods_GoodFeels.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +77,8 @@
 			children = (
 				2CED230D1C27B2EF008752E8 /* GoodFeels */,
 				2CED230C1C27B2EF008752E8 /* Products */,
+				CB56B7FEF297FB04193D4DAA /* Pods */,
+				970C34C7926FACB3E320833D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,7 +97,6 @@
 				2CED233F1C28A3ED008752E8 /* Supporting FIles */,
 				2CED234E1C28C271008752E8 /* Clients */,
 				2CED233E1C28A3CC008752E8 /* Views */,
-				2CED233D1C28A3C6008752E8 /* Models */,
 				2CED233C1C28A3BF008752E8 /* ViewControllers */,
 				2CED230E1C27B2EF008752E8 /* AppDelegate.swift */,
 				2CED23151C27B2EF008752E8 /* Assets.xcassets */,
@@ -136,22 +136,11 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		2CED233D1C28A3C6008752E8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2CED23551C28C350008752E8 /* Contact.swift */,
-				2CED23571C28C35D008752E8 /* Message.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		2CED233E1C28A3CC008752E8 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				2CED23591C28C393008752E8 /* ContactCell.swift */,
-				2CED235D1C28C3E2008752E8 /* ContactCell.xib */,
 				2CED235B1C28C3C0008752E8 /* MessageCell.swift */,
-				2CED235F1C28C40A008752E8 /* MessageCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -179,9 +168,27 @@
 			isa = PBXGroup;
 			children = (
 				2CED23531C28C2DE008752E8 /* ContactsManager.swift */,
-				2CED23511C28C2BB008752E8 /* MessageClient.swift */,
+				2CED23511C28C2BB008752E8 /* MessageManager.swift */,
+				2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */,
 			);
 			name = Clients;
+			sourceTree = "<group>";
+		};
+		970C34C7926FACB3E320833D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				614E24F6E8ABAF8B93E3FDA4 /* Pods_GoodFeels.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB56B7FEF297FB04193D4DAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EF29CE25001AED39A0A839A /* Pods-GoodFeels.debug.xcconfig */,
+				91F30CCE043BB9A20ACF7714 /* Pods-GoodFeels.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,9 +198,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CED231D1C27B2EF008752E8 /* Build configuration list for PBXNativeTarget "GoodFeels" */;
 			buildPhases = (
+				2D1D31B8EC82B60CA9D86FFC /* Check Pods Manifest.lock */,
 				2CED23071C27B2EF008752E8 /* Sources */,
 				2CED23081C27B2EF008752E8 /* Frameworks */,
 				2CED23091C27B2EF008752E8 /* Resources */,
+				FEBFF352F6C2E92C5824A5FC /* Embed Pods Frameworks */,
+				D1890232A6F70A7A14D9AA6A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -216,6 +226,7 @@
 				TargetAttributes = {
 					2CED230A1C27B2EF008752E8 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 25F7RJW6VQ;
 					};
 				};
 			};
@@ -243,15 +254,61 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CED23191C27B2EF008752E8 /* LaunchScreen.storyboard in Resources */,
-				2CED23601C28C40A008752E8 /* MessageCell.xib in Resources */,
 				2CED23481C28A50C008752E8 /* hprummonitor.plist in Resources */,
 				2CED23161C27B2EF008752E8 /* Assets.xcassets in Resources */,
-				2CED235E1C28C3E2008752E8 /* ContactCell.xib in Resources */,
 				2CED23141C27B2EF008752E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2D1D31B8EC82B60CA9D86FFC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D1890232A6F70A7A14D9AA6A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoodFeels/Pods-GoodFeels-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FEBFF352F6C2E92C5824A5FC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GoodFeels/Pods-GoodFeels-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2CED23071C27B2EF008752E8 /* Sources */ = {
@@ -260,14 +317,13 @@
 			files = (
 				2CED235A1C28C393008752E8 /* ContactCell.swift in Sources */,
 				2CED235C1C28C3C0008752E8 /* MessageCell.swift in Sources */,
-				2CED23521C28C2BB008752E8 /* MessageClient.swift in Sources */,
+				2CED23521C28C2BB008752E8 /* MessageManager.swift in Sources */,
 				2CED23411C28A441008752E8 /* MessagesViewController.swift in Sources */,
+				2C1877281C346C7100F129B7 /* GoodFeelsClient.swift in Sources */,
 				2CED23431C28A466008752E8 /* ContactsViewController.swift in Sources */,
 				2CED230F1C27B2EF008752E8 /* AppDelegate.swift in Sources */,
 				2CED23461C28A4FC008752E8 /* NameViewController.swift in Sources */,
-				2CED23581C28C35D008752E8 /* Message.swift in Sources */,
 				2CED23541C28C2DE008752E8 /* ContactsManager.swift in Sources */,
-				2CED23561C28C350008752E8 /* Contact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,18 +432,22 @@
 		};
 		2CED231E1C27B2EF008752E8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EF29CE25001AED39A0A839A /* Pods-GoodFeels.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoodFeels",
 				);
 				INFOPLIST_FILE = GoodFeels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "${inherited}";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninjasudo.GoodFeels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoodFeels/GoodFeels-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -395,18 +455,22 @@
 		};
 		2CED231F1C27B2EF008752E8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91F30CCE043BB9A20ACF7714 /* Pods-GoodFeels.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GoodFeels",
 				);
 				INFOPLIST_FILE = GoodFeels/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "${inherited}";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ninjasudo.GoodFeels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "GoodFeels/GoodFeels-Bridging-Header.h";
 			};
 			name = Release;
@@ -430,6 +494,7 @@
 				2CED231F1C27B2EF008752E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
