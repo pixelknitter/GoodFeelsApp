@@ -10,12 +10,11 @@ import Foundation
 import Firebase
 
 class MessageManager: NSObject {
-//    private let rootRef = Firebase(url: "https://good-feels.firebaseio.com/")
+    private let rootRef = Firebase(url: "https://good-feels.firebaseio.com/messages")
     
     /*
         setup init
     */
-    
     
     func fetchMessages() -> NSArray {
         // Get a reference to our posts
@@ -29,12 +28,7 @@ class MessageManager: NSObject {
         return []
     }
     
-    func submitMessage() {
-        // Write data to Firebase
-//        rootRef.setValue("Do you have data? You'll love Firebase.")
-    }
-    
-    func cacheMessages() {
+    func syncMessages() {
         // TODO
     }
 }

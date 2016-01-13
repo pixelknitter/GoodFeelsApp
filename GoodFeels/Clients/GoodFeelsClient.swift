@@ -39,7 +39,18 @@ class GoodFeelsClient : NSObject {
         return []
     }
     
-    func cacheUserName() {
-        // TODO NSUserDefaults
+    func setName(name : String) {
+        // TODO Cache to NSUserDefaults
+        
+    }
+    
+    func setLastMessageIndex(index : NSIndexPath) {
+        // TODO Cache to NSUserDefaults
+    }
+    
+    func getName() -> String {
+        let name = ""
+        
+        return name
     }
 }
