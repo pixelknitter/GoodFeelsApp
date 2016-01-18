@@ -25,19 +25,19 @@ class MessageManager: NSObject {
     }
     
     func getSynchronizedMessages() -> Array<String> {
-         messages += syncChanges()
+        messages += syncChanges()
         return messages
     }
     
     func syncChanges() -> Array<String> { // Doesn't work yet
         var newMessages = [String]()
         rootRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-            let data = snapshot.value
-            if data is Array<String> {
-                newMessages.appendContentsOf(data as! Array<String>)
-            } else if data is String {
-                newMessages.append(data as! String)
-            }
+                let data = snapshot.value
+                if data is Array<String> {
+                    newMessages.appendContentsOf(data as! Array<String>)
+                } else if data is String {
+                    newMessages.append(data as! String)
+                }
             }, withCancelBlock: { error in
                 print(error.description)
         })

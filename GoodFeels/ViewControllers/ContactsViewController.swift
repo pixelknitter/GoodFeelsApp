@@ -108,13 +108,6 @@ extension ContactsViewController : UITableViewDataSource {
             cell.accessoryType = .None
         }
         
-//        selectedGame = games[indexPath.row]
-//        
-//        //update the checkmark for the current row
-//        let cell = tableView.cellForRowAtIndexPath(indexPath)
-//        cell?.accessoryType = .Checkmark
-        
-        
         return cell
     }
 }
