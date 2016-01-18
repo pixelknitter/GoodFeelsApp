@@ -14,36 +14,32 @@ class MessagesViewController: UIViewController {
     private var nibMessageCellLoaded = false
     private var reuseIdentifier = "MessageCell"
     
+    var messages = GoodFeelsClient.sharedInstance.messages()
+    
     override func viewDidLoad() {
-        //
-        
-//        if !nibMessageCellLoaded {
-//            messagesTableView!.registerNib(UINib(nibName:reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
-//            nibMessageCellLoaded = true
-//        }
-        
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        messages = GoodFeelsClient.sharedInstance.messages()
+        messagesTableView.reloadData()
     }
     
     override func viewWillDisappear(animated: Bool) {
         self.navigationController?.navigationBarHidden = false
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "MessageSelected" {
-            if let cell = sender as? UITableViewCell {
-                let indexPath = messagesTableView.indexPathForCell(cell)
-                if let index = indexPath?.row {
-//                    message = messages[index] // TODO
-                }
-            }
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "MessageSelected" {
+//            if let cell = sender as? UITableViewCell {
+//                if let indexPath = messagesTableView.indexPathForCell(cell) {
+//                    GoodFeelsClient.sharedInstance.message = indexPath.row
+//                    GoodFeelsClient.sharedInstance.setLastMessageIndex(indexPath)
+//                }
+//            }
+//        }
+//    }
 
     
     // Code example for later
@@ -62,28 +58,31 @@ class MessagesViewController: UIViewController {
 }
 
 extension MessagesViewController : UITableViewDelegate {
-    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60 // adjust to the necessary height of the text
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60.0
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        // select message and go to message view controller
+        GoodFeelsClient.sharedInstance.setLastMessageIndex(indexPath)
+        GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
     }
 }
 
 extension MessagesViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return messages.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = messagesTableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
-//        let player = players[indexPath.row] as Player
-//        cell.textLabel?.text = player.name
-//        cell.detailTextLabel?.text = player.game
-        
+        if let nameLabel = cell.viewWithTag(100) as? UILabel {
+            nameLabel.text = messages[indexPath.row]
+        }
         return cell
     }
 

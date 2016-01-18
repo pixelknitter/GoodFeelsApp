@@ -14,14 +14,28 @@ class NameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // load up previously saved name
+        nameTextField.text = GoodFeelsClient.sharedInstance.getName()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if let ident = identifier {
+            if ident == "toMessageChoice" {
+                let name = nameTextField.text! as String
+                
+                if name.isEmpty {
+                    return false
+                } else {
+                    GoodFeelsClient.sharedInstance.setName(name)
+                }
+            }
+        }
+        return true
+    }
 }
 

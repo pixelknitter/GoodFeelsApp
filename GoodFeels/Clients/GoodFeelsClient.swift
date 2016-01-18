@@ -7,50 +7,52 @@
 //
 
 import Foundation
+import ContactsUI
 
 class GoodFeelsClient : NSObject {
-    class var sharedInstance: GoodFeelsClient {
-        struct Singleton {
-            static let instance = GoodFeelsClient()
-        }
-        return Singleton.instance
-    }
+    private let messageManager = MessageManager()
+    private let contactManager = ContactsManager()
+    private let defaults = NSUserDefaults.standardUserDefaults()
     
-    private let messageManager: MessageManager
-    private let contactsManager: ContactsManager
-    private let isOnline: Bool
+    var userName : String
+    var selectedMessage : String
+
+    static let sharedInstance = GoodFeelsClient()
     
-    var selectedMessage : String = ""
-    let userName : String = ""
-    
-    override init() {
-        messageManager = MessageManager()
-        contactsManager = ContactsManager()
-        isOnline = false
-        
+    private override init() {
+        userName = defaults.objectForKey("userName") as! String
+        selectedMessage = ""
         super.init()
     }
     
-    func messages() -> NSArray {
-        return []
+    func messages() -> Array<String> {
+        return messageManager.getSynchronizedMessages()
     }
     
-    func contacts() -> NSArray {
-        return []
+    func contacts() -> Array<CNContact> {
+        return contactManager.fetchUnifiedContacts()
     }
     
     func setName(name : String) {
-        // TODO Cache to NSUserDefaults
-        
-    }
-    
-    func setLastMessageIndex(index : NSIndexPath) {
-        // TODO Cache to NSUserDefaults
+        userName = name
+        defaults.setObject(name, forKey: "userName")
+        defaults.synchronize()
     }
     
     func getName() -> String {
-        let name = ""
-        
-        return name
+        return userName
+    }
+    
+    func setLastMessageIndex(index : NSIndexPath) {
+        defaults.setObject(index, forKey: "lastMessageIndexPath")
+        defaults.synchronize()
+    }
+    
+    func getLastMessageIndex() -> NSIndexPath {
+        return defaults.objectForKey("lastMessageIndexPath") as! NSIndexPath
+    }
+    
+    func getMessage() -> String {
+        return selectedMessage
     }
 }

@@ -17,8 +17,6 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
         return MFMessageComposeViewController.canSendText()
     }
     
-    
-    
     // Configures and returns a MFMessageComposeViewController instance
     func configuredMessageComposeViewController(textMessageRecipients:[String] ,textBody body:String) -> MFMessageComposeViewController {
         let messageComposeVC = MFMessageComposeViewController()

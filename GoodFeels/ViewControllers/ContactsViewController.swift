@@ -19,16 +19,13 @@ class ContactsViewController: UIViewController {
     private var nibContactCellLoaded = false
     private var reuseIdentifier = "ContactCell"
     
+    var contacts : Array<CNContact> = []
+    
     override func viewDidLoad() {
-        //
-//        if !nibContactCellLoaded {
-//            contactsTableView!.registerNib(UINib(nibName:reuseIdentifier, bundle: nil), forCellReuseIdentifier: reuseIdentifier)
-//            nibContactCellLoaded = true
-//        }
-        
         contactsTableView.delegate = self
         contactsTableView.dataSource = self
-        //        animateButtonUp()
+        
+        contacts = GoodFeelsClient.sharedInstance.contacts()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -42,7 +39,6 @@ class ContactsViewController: UIViewController {
     
     func animateButtonUp() {
         let spring = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
-//        spring.fromValue = -60
         spring.toValue = 0
         spring.springBounciness = 8 // a float between 0 and 20
         spring.springSpeed = 10
@@ -81,27 +77,37 @@ extension ContactsViewController : UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        // set animate button up active
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            cell.selected = true
+        }
     }
 }
 
 extension ContactsViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return contacts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = contactsTableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
-//        if indexPath.row == selectedGameIndex {
-//            cell.accessoryType = .Checkmark
-//        } else {
-//            cell.accessoryType = .None
-//        }
-//        //Other row is selected - need to deselect it
-//        if let index = selectedGameIndex {
-//            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
-//            cell?.accessoryType = .None
-//        }
+        let contact = contacts[indexPath.row]
+        
+        if let nameLabel = cell.viewWithTag(101) as? UILabel {
+            nameLabel.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
+        }
+        if let numberLabel = cell.viewWithTag(102) as? UILabel {
+            let labeledValue = contact.phoneNumbers[0] as CNLabeledValue
+            let phoneNumber = labeledValue.value as! CNPhoneNumber
+            
+            numberLabel.text = phoneNumber.stringValue
+        }
+        
+        if cell.selected {
+            cell.accessoryType = .Checkmark
+        } else {
+            cell.accessoryType = .None
+        }
+        
 //        selectedGame = games[indexPath.row]
 //        
 //        //update the checkmark for the current row
@@ -111,12 +117,6 @@ extension ContactsViewController : UITableViewDataSource {
         
         return cell
     }
-    
-    // For inserting new messages
-    //    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-    //
-    //    }
-    
 }
 extension ContactsViewController : MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {

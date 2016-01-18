@@ -10,25 +10,48 @@ import Foundation
 import Firebase
 
 class MessageManager: NSObject {
-    private let rootRef = Firebase(url: "https://good-feels.firebaseio.com/messages")
+    private let rootRef : Firebase
     
-    /*
-        setup init
-    */
+    var messages = [String]()
     
-    func fetchMessages() -> NSArray {
-        // Get a reference to our posts
+    override init() {
+        // grab the initial messages
+        Firebase.defaultConfig().persistenceEnabled = true
+        rootRef = Firebase(url: "https://good-feels.firebaseio.com/messages")
+        rootRef.keepSynced(true)
         
-        // Retrieve new posts as they are added to your database
-//        rootRef.observeEventType(.ChildAdded, withBlock: { snapshot in
-//            print(snapshot.value.objectForKey("author"))
-//            print(snapshot.value.objectForKey("title"))
-//        })
-        
-        return []
+        super.init()
+        messages = fetchMessages()
     }
     
-    func syncMessages() {
-        // TODO
+    func getSynchronizedMessages() -> Array<String> {
+         messages += syncChanges()
+        return messages
+    }
+    
+    func syncChanges() -> Array<String> { // Doesn't work yet
+        var newMessages = [String]()
+        rootRef.observeEventType(.ChildAdded, withBlock: { snapshot in
+            let data = snapshot.value
+            if data is Array<String> {
+                newMessages.appendContentsOf(data as! Array<String>)
+            } else if data is String {
+                newMessages.append(data as! String)
+            }
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        return newMessages
+    }
+    
+    func fetchMessages() -> Array<String> {
+        // get a full dump
+        rootRef.observeEventType(.Value, withBlock: { snapshot in
+            self.messages = snapshot.value as! [String]
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
+        return messages
     }
 }
