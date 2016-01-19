@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C1877281C346C7100F129B7 /* GoodFeelsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */; };
 		2C18772A1C3B557E00F129B7 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1877291C3B557E00F129B7 /* MessageComposer.swift */; };
+		2C68CFDF1C4E1DA600082515 /* BackBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68CFDE1C4E1DA600082515 /* BackBoardView.swift */; };
 		2CED230F1C27B2EF008752E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED230E1C27B2EF008752E8 /* AppDelegate.swift */; };
 		2CED23141C27B2EF008752E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23121C27B2EF008752E8 /* Main.storyboard */; };
 		2CED23161C27B2EF008752E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23151C27B2EF008752E8 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoodFeelsClient.swift; path = Clients/GoodFeelsClient.swift; sourceTree = "<group>"; };
 		2C1877291C3B557E00F129B7 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageComposer.swift; path = Clients/MessageComposer.swift; sourceTree = "<group>"; };
+		2C68CFDE1C4E1DA600082515 /* BackBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackBoardView.swift; path = Views/BackBoardView.swift; sourceTree = "<group>"; };
 		2CED230B1C27B2EF008752E8 /* GoodFeels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodFeels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CED230E1C27B2EF008752E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CED23131C27B2EF008752E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 			children = (
 				2CED23591C28C393008752E8 /* ContactCell.swift */,
 				2CED235B1C28C3C0008752E8 /* MessageCell.swift */,
+				2C68CFDE1C4E1DA600082515 /* BackBoardView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 			files = (
 				2CED235A1C28C393008752E8 /* ContactCell.swift in Sources */,
 				2CED235C1C28C3C0008752E8 /* MessageCell.swift in Sources */,
+				2C68CFDF1C4E1DA600082515 /* BackBoardView.swift in Sources */,
 				2CED23521C28C2BB008752E8 /* MessageManager.swift in Sources */,
 				2CED23411C28A441008752E8 /* MessagesViewController.swift in Sources */,
 				2C1877281C346C7100F129B7 /* GoodFeelsClient.swift in Sources */,

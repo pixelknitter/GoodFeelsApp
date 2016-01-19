@@ -43,16 +43,17 @@ class GoodFeelsClient : NSObject {
         return userName
     }
     
-    func setLastMessageIndex(index : NSIndexPath) {
-        defaults.setObject(index, forKey: "lastMessageIndexPath")
-        defaults.synchronize()
-    }
-    
-    func getLastMessageIndex() -> NSIndexPath {
-        return defaults.objectForKey("lastMessageIndexPath") as! NSIndexPath
-    }
+//    func setLastMessageIndex(index : NSIndexPath) {
+//        defaults.setObject(index, forKey: "lastMessageIndexPath")
+//        defaults.synchronize()
+//    }
+//    
+//    func getLastMessageIndex() -> NSIndexPath {
+//        return defaults.objectForKey("lastMessageIndexPath") as! NSIndexPath
+//    }
     
     func getMessage() -> String {
+        print("selected message: \(selectedMessage)")
         return selectedMessage
     }
 }

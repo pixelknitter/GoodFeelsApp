@@ -10,8 +10,8 @@ import UIKit
 import pop
 
 class MessagesViewController: UIViewController {
+    @IBOutlet var backView: BackBoardView!
     @IBOutlet weak var messagesTableView: UITableView!
-    private var nibMessageCellLoaded = false
     private var reuseIdentifier = "MessageCell"
     
     var messages = GoodFeelsClient.sharedInstance.messages()
@@ -19,6 +19,9 @@ class MessagesViewController: UIViewController {
     override func viewDidLoad() {
         messagesTableView.delegate = self
         messagesTableView.dataSource = self
+        messagesTableView.editing = false
+        
+        backView.tableView = messagesTableView.backgroundView
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -30,16 +33,16 @@ class MessagesViewController: UIViewController {
         self.navigationController?.navigationBarHidden = false
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "MessageSelected" {
-//            if let cell = sender as? UITableViewCell {
-//                if let indexPath = messagesTableView.indexPathForCell(cell) {
-//                    GoodFeelsClient.sharedInstance.message = indexPath.row
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "MessageSelected" {
+            if let cell = sender as? UITableViewCell {
+                if let indexPath = messagesTableView.indexPathForCell(cell) {
+//                    GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
 //                    GoodFeelsClient.sharedInstance.setLastMessageIndex(indexPath)
-//                }
-//            }
-//        }
-//    }
+                }
+            }
+        }
+    }
 
     
     // Code example for later
@@ -66,9 +69,18 @@ extension MessagesViewController : UITableViewDelegate {
         return 60.0
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        GoodFeelsClient.sharedInstance.setLastMessageIndex(indexPath)
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
+        print("Highlighting index: \(indexPath.row)")
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
+        print("Highlighting index: \(indexPath.row)")
     }
 }
 

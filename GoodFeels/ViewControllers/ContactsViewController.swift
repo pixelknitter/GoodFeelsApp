@@ -12,27 +12,30 @@ import MessageUI
 import pop
 
 class ContactsViewController: UIViewController {
+    @IBOutlet var backView: BackBoardView!
     @IBOutlet weak var contactsTableView: UITableView!
     @IBOutlet weak var sendMessageButton: UIButton!
     @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
     
-    private var nibContactCellLoaded = false
     private var reuseIdentifier = "ContactCell"
     
     var contacts : Array<CNContact> = []
+    var selectedContacts = [Int: String]()
     
     override func viewDidLoad() {
         contactsTableView.delegate = self
         contactsTableView.dataSource = self
+        contactsTableView.editing = false
+        
+        backView.tableView = contactsTableView.backgroundView
         
         contacts = GoodFeelsClient.sharedInstance.contacts()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        animateButtonUp()
+        print("get message: \(GoodFeelsClient.sharedInstance.selectedMessage)")
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
         self.navigationController?.navigationBarHidden = false
         animateButtonDown()
     }
@@ -67,19 +70,86 @@ class ContactsViewController: UIViewController {
             controller.messageComposeDelegate = self
             //            self.presentViewController(controller, animated: true, completion: nil)
         }
+        print("Sending a Text")
     }
 }
 
 extension ContactsViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50 // adjust to the necessary height of the text
+        return 50
     }
     
-    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-            cell.selected = true
+            if cell.highlighted {
+                cell.highlighted = false
+                cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
+            }
         }
+        print("hit row: \(indexPath.row)")
+        let contact = contacts[indexPath.row]
+        let labeledValue = contact.phoneNumbers[0] as CNLabeledValue // maybe choose Main Label or Mobile
+        let phoneNumber = labeledValue.value as! CNPhoneNumber
+        
+        selectedContacts[indexPath.row] = phoneNumber.stringValue
+        
+        if !selectedContacts.isEmpty {
+            animateButtonUp()
+        }
+    }
+    
+    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
+        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+            cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
+        }
+        print("unhit row: \(indexPath.row)")
+//        selectedContacts.removeValueForKey(indexPath.row)
+        print("count: \(selectedContacts.count)")
+        if !selectedContacts.isEmpty {
+            animateButtonUp()
+        }
+    }
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+//            if cell.selected {
+//                cell.selected = false
+//            }
+//            cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
+//        }
+//        print("row: \(indexPath.row)")
+//        let contact = contacts[indexPath.row]
+//        let labeledValue = contact.phoneNumbers[0] as CNLabeledValue // maybe choose Main Label or Mobile
+//        let phoneNumber = labeledValue.value as! CNPhoneNumber
+//        
+//        selectedContacts[indexPath.row] = phoneNumber.stringValue
+//        
+//        if !selectedContacts.isEmpty {
+//            animateButtonUp()
+//        }
+//    }
+    
+//    func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+//        print("row: \(indexPath.row)")
+//        print(" \(selectedContacts.count)")
+//        return indexPath
+//    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+//        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
+//            cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
+//        }
+//        print("row: \(indexPath.row)")
+//        selectedContacts.removeValueForKey(indexPath.row)
+//        print(" \(selectedContacts.count)")
+//        if !selectedContacts.isEmpty {
+//            animateButtonUp()
+//        }
     }
 }
 
@@ -103,11 +173,9 @@ extension ContactsViewController : UITableViewDataSource {
         }
         
         if cell.selected {
-            cell.accessoryType = .Checkmark
-        } else {
-            cell.accessoryType = .None
+            cell.selected = false
+            cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
         }
-        
         return cell
     }
 }
