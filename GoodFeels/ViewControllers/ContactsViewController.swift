@@ -30,7 +30,6 @@ class ContactsViewController: UIViewController {
         backView.tableView = contactsTableView.backgroundView
         
         contacts = GoodFeelsClient.sharedInstance.contacts()
-        print("get message: \(GoodFeelsClient.sharedInstance.selectedMessage)")
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -63,14 +62,14 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func sendText(sender: UIButton) {
-        if (MFMessageComposeViewController.canSendText()) {
-            let controller = MFMessageComposeViewController()
-            controller.body = "Message Body"
-            //            controller.recipients = [phoneNumber.text]
-            controller.messageComposeDelegate = self
-            //            self.presentViewController(controller, animated: true, completion: nil)
+        if GoodFeelsClient.sharedInstance.canSendText() && !selectedContacts.isEmpty {
+            let controller = GoodFeelsClient.sharedInstance.configuredMessageComposeViewController(
+                Array(selectedContacts.values),
+                textBody: GoodFeelsClient.sharedInstance.selectedMessage)
+            self.presentViewController(controller, animated: true, completion: nil)
+        } else {
+            print("This device cannot send SMS messages.")
         }
-        print("Sending a Text")
     }
 }
 
@@ -82,10 +81,6 @@ extension ContactsViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
-    }
-    
-    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -112,29 +107,6 @@ extension ContactsViewController : UITableViewDelegate {
             animateButtonUp()
         }
     }
-    
-//    func tableView(tableView: UITableView, willDeselectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-//        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-//            cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
-//        }
-//        
-//        if !selectedContacts.isEmpty {
-//            animateButtonUp()
-//        }
-//        return indexPath
-//    }
-//    
-//    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-//        if let cell = tableView.cellForRowAtIndexPath(indexPath) {
-//            cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
-//        }
-//        print("deselect row: \(indexPath.row)")
-//        selectedContacts.removeValueForKey(indexPath.row)
-//        print(" \(selectedContacts.count)")
-//        if !selectedContacts.isEmpty {
-//            animateButtonUp()
-//        }
-//    }
 }
 
 extension ContactsViewController : UITableViewDataSource {
@@ -163,9 +135,9 @@ extension ContactsViewController : UITableViewDataSource {
         return cell
     }
 }
-extension ContactsViewController : MFMessageComposeViewControllerDelegate {
-    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-        //... handle sms screen actions
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-}
+//extension ContactsViewController : MFMessageComposeViewControllerDelegate {
+//    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+//        //... handle sms screen actions
+//        self.dismissViewControllerAnimated(true, completion: nil)
+//    }
+//}

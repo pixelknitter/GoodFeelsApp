@@ -8,10 +8,12 @@
 
 import Foundation
 import ContactsUI
+import MessageUI
 
 class GoodFeelsClient : NSObject {
     private let messageManager = MessageManager()
     private let contactManager = ContactsManager()
+    private let messageComposer = MessageComposer()
     private let defaults = NSUserDefaults.standardUserDefaults()
     
     var userName : String
@@ -29,22 +31,20 @@ class GoodFeelsClient : NSObject {
         super.init()
     }
     
-    func messages() -> Array<String> {
-        return messageManager.getSynchronizedMessages()
+    // Client
+    
+    func getMessage() -> String {
+        return selectedMessage
     }
     
-    func contacts() -> Array<CNContact> {
-        return contactManager.fetchUnifiedContacts()
+    func getName() -> String {
+        return userName
     }
     
     func setName(name : String) {
         userName = name
         defaults.setObject(name, forKey: "userName")
         defaults.synchronize()
-    }
-    
-    func getName() -> String {
-        return userName
     }
     
 //    func setLastMessageIndex(index : NSIndexPath) {
@@ -56,8 +56,25 @@ class GoodFeelsClient : NSObject {
 //        return defaults.objectForKey("lastMessageIndexPath") as! NSIndexPath
 //    }
     
-    func getMessage() -> String {
-        print("selected message: \(selectedMessage)")
-        return selectedMessage
+    // Contact Manager
+    
+    func contacts() -> Array<CNContact> {
+        return contactManager.fetchUnifiedContacts()
+    }
+    
+    // Message Manager
+    
+    func messages() -> Array<String> {
+        return messageManager.getSynchronizedMessages()
+    }
+    
+    // Message Composer
+    
+    func canSendText() -> Bool {
+        return messageComposer.canSendText()
+    }
+    
+    func configuredMessageComposeViewController(textMessageRecipients:[String] ,textBody body:String) -> MFMessageComposeViewController {
+        return messageComposer.configuredMessageComposeViewController(textMessageRecipients, textBody: body)
     }
 }

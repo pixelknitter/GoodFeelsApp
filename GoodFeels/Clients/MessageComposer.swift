@@ -10,6 +10,7 @@ import Foundation
 import MessageUI
 
 class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
+    static let instance = MessageComposer()
     
     // A wrapper function to indicate whether or not a text message can be sent from the user's device
     func canSendText() -> Bool {
@@ -26,10 +27,9 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
         return messageComposeVC
     }
     
-    
-    
     // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
+        // Maybe do other stuff: send to Messages Screen, etc
         controller.dismissViewControllerAnimated(true, completion: nil)
     }
 }

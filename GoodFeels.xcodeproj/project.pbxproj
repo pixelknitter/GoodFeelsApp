@@ -174,8 +174,8 @@
 			children = (
 				2CED23531C28C2DE008752E8 /* ContactsManager.swift */,
 				2CED23511C28C2BB008752E8 /* MessageManager.swift */,
-				2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */,
 				2C1877291C3B557E00F129B7 /* MessageComposer.swift */,
+				2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */,
 			);
 			name = Clients;
 			sourceTree = "<group>";
