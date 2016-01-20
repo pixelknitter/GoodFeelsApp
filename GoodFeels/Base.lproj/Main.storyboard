@@ -149,55 +149,6 @@
             </objects>
             <point key="canvasLocation" x="290" y="397"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Uqj-bu-Guf">
-            <objects>
-                <tableViewController id="EKS-1k-w66" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Bse-XI-oN7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="xcb-uM-9m7" detailTextLabel="zAj-8H-sQx" rowHeight="50" style="IBUITableViewCellStyleSubtitle" id="oyw-Du-vfU" customClass="ContactCell" customModule="GoodFeels" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="50"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oyw-Du-vfU" id="qQq-KT-xCF">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="49.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" tag="101" contentMode="left" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xcb-uM-9m7">
-                                            <rect key="frame" x="15" y="9" width="104.5" height="19.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" tag="102" contentMode="left" text="Phone #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zAj-8H-sQx">
-                                            <rect key="frame" x="15" y="28.5" width="45.5" height="13.5"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                            <color key="textColor" red="0.59865444820000002" green="0.36637534779999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <color key="tintColor" red="1" green="0.12549019610000001" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <outlet property="nameLabel" destination="xcb-uM-9m7" id="rj9-JH-qpz"/>
-                                    <outlet property="numberLabel" destination="zAj-8H-sQx" id="zwS-G5-NoT"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="EKS-1k-w66" id="DjC-Gz-fWK"/>
-                            <outlet property="delegate" destination="EKS-1k-w66" id="Yry-iK-MuP"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DaU-Kl-ebs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="902" y="-293"/>
-        </scene>
         <!--Choose Contacts-->
         <scene sceneID="1x9-Z4-OEC">
             <objects>
