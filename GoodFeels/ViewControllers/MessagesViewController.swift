@@ -37,27 +37,12 @@ class MessagesViewController: UIViewController {
         if segue.identifier == "MessageSelected" {
             if let cell = sender as? UITableViewCell {
                 if let indexPath = messagesTableView.indexPathForCell(cell) {
-//                    GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
+                    GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
 //                    GoodFeelsClient.sharedInstance.setLastMessageIndex(indexPath)
                 }
             }
         }
     }
-
-    
-    // Code example for later
-//    if let playerDetailsViewController = segue.sourceViewController as? PlayerDetailsViewController {
-//        
-//        //add the new player to the players array
-//        if let player = playerDetailsViewController.player {
-//            players.append(player)
-//            
-//            //update the tableView
-//            let indexPath = NSIndexPath(forRow: players.count-1, inSection: 0)
-//            tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-//        }
-//    }
-    
 }
 
 extension MessagesViewController : UITableViewDelegate {
@@ -73,15 +58,9 @@ extension MessagesViewController : UITableViewDelegate {
         return true
     }
     
-    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
-        print("Highlighting index: \(indexPath.row)")
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
-        print("Highlighting index: \(indexPath.row)")
-    }
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
+//    }
 }
 
 extension MessagesViewController : UITableViewDataSource {
