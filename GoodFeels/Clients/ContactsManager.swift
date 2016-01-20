@@ -17,7 +17,7 @@ class ContactsManager: NSObject {
     func isContactAvailable(contact : CNContact) {
         // Checking if phone number is available for the given contact.
         if (contact.isKeyAvailable(CNContactPhoneNumbersKey)) {
-//            print("\(contact.phoneNumbers)")
+            print("\(contact.phoneNumbers)")
         } else {
             //Refetch the keys
             let refetchedContact = try! contactStore.unifiedContactWithIdentifier(contact.identifier, keysToFetch: keysToFetch)
@@ -29,9 +29,8 @@ class ContactsManager: NSObject {
         do {
             try contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch)) {
                 (contact, cursor) -> Void in
-                if (!contact.phoneNumbers.isEmpty){
-//                    print(contact)
-//                    print(contact.phoneNumbers[0])
+                if !contact.phoneNumbers.isEmpty && !self.contacts.contains(contact) {
+                    // TODO filter by phone labels "Mobile" & "Main"
                     self.contacts.append(contact)
                 }
             }
