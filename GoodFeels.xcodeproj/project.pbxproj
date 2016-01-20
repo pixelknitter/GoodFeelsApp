@@ -10,6 +10,7 @@
 		2C1877281C346C7100F129B7 /* GoodFeelsClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */; };
 		2C18772A1C3B557E00F129B7 /* MessageComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1877291C3B557E00F129B7 /* MessageComposer.swift */; };
 		2C68CFDF1C4E1DA600082515 /* BackBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68CFDE1C4E1DA600082515 /* BackBoardView.swift */; };
+		2C818E851C4F7188003AEBC1 /* hprummonitor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2C818E841C4F7188003AEBC1 /* hprummonitor.plist */; };
 		2CED230F1C27B2EF008752E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED230E1C27B2EF008752E8 /* AppDelegate.swift */; };
 		2CED23141C27B2EF008752E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23121C27B2EF008752E8 /* Main.storyboard */; };
 		2CED23161C27B2EF008752E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23151C27B2EF008752E8 /* Assets.xcassets */; };
@@ -22,7 +23,6 @@
 		2CED23411C28A441008752E8 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23401C28A441008752E8 /* MessagesViewController.swift */; };
 		2CED23431C28A466008752E8 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23421C28A466008752E8 /* ContactsViewController.swift */; };
 		2CED23461C28A4FC008752E8 /* NameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23451C28A4FC008752E8 /* NameViewController.swift */; };
-		2CED23481C28A50C008752E8 /* hprummonitor.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23471C28A50C008752E8 /* hprummonitor.plist */; };
 		2CED23521C28C2BB008752E8 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23511C28C2BB008752E8 /* MessageManager.swift */; };
 		2CED23541C28C2DE008752E8 /* ContactsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23531C28C2DE008752E8 /* ContactsManager.swift */; };
 		2CED235A1C28C393008752E8 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED23591C28C393008752E8 /* ContactCell.swift */; };
@@ -34,6 +34,7 @@
 		2C1877271C346C7100F129B7 /* GoodFeelsClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoodFeelsClient.swift; path = Clients/GoodFeelsClient.swift; sourceTree = "<group>"; };
 		2C1877291C3B557E00F129B7 /* MessageComposer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageComposer.swift; path = Clients/MessageComposer.swift; sourceTree = "<group>"; };
 		2C68CFDE1C4E1DA600082515 /* BackBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BackBoardView.swift; path = Views/BackBoardView.swift; sourceTree = "<group>"; };
+		2C818E841C4F7188003AEBC1 /* hprummonitor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hprummonitor.plist; sourceTree = "<group>"; };
 		2CED230B1C27B2EF008752E8 /* GoodFeels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodFeels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CED230E1C27B2EF008752E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CED23131C27B2EF008752E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		2CED23401C28A441008752E8 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessagesViewController.swift; path = ViewControllers/MessagesViewController.swift; sourceTree = "<group>"; };
 		2CED23421C28A466008752E8 /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsViewController.swift; path = ViewControllers/ContactsViewController.swift; sourceTree = "<group>"; };
 		2CED23451C28A4FC008752E8 /* NameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NameViewController.swift; path = ViewControllers/NameViewController.swift; sourceTree = "<group>"; };
-		2CED23471C28A50C008752E8 /* hprummonitor.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = hprummonitor.plist; path = "Supporting Files/hprummonitor.plist"; sourceTree = "<group>"; };
 		2CED234A1C28A587008752E8 /* GoodFeels-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoodFeels-Bridging-Header.h"; sourceTree = "<group>"; };
 		2CED23511C28C2BB008752E8 /* MessageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MessageManager.swift; path = Clients/MessageManager.swift; sourceTree = "<group>"; };
 		2CED23531C28C2DE008752E8 /* ContactsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContactsManager.swift; path = Clients/ContactsManager.swift; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		2CED23221C27B458008752E8 /* AppPulse */ = {
 			isa = PBXGroup;
 			children = (
-				2CED23471C28A50C008752E8 /* hprummonitor.plist */,
+				2C818E841C4F7188003AEBC1 /* hprummonitor.plist */,
 			);
 			name = AppPulse;
 			sourceTree = "<group>";
@@ -260,7 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CED23191C27B2EF008752E8 /* LaunchScreen.storyboard in Resources */,
-				2CED23481C28A50C008752E8 /* hprummonitor.plist in Resources */,
+				2C818E851C4F7188003AEBC1 /* hprummonitor.plist in Resources */,
 				2CED23161C27B2EF008752E8 /* Assets.xcassets in Resources */,
 				2CED23141C27B2EF008752E8 /* Main.storyboard in Resources */,
 			);
