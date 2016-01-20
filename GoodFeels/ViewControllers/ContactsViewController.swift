@@ -135,9 +135,3 @@ extension ContactsViewController : UITableViewDataSource {
         return cell
     }
 }
-//extension ContactsViewController : MFMessageComposeViewControllerDelegate {
-//    func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
-//        //... handle sms screen actions
-//        self.dismissViewControllerAnimated(true, completion: nil)
-//    }
-//}
