@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import HPAppPulse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

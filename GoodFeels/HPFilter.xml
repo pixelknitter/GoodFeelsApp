@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SensitiveData>
+    <Items>
+        <Item>
+            <detect>[\d\-,\.]{4,20}</detect>
+            <replace>***</replace>
+        </Item>
+        <!--Item>
+            <detect>your regex</detect>
+            <replace>your replacement string</replace>
+        </Item-->
+    </Items>
+    <!--Use this block to configure URL parts that are sensitive and should be masked.
+    Only capture groups (those surrounded by parenthesis) are masked. -->
+    <!--MaskUrls>
+        <MaskUrl>http://www.example.com/customers/(.*?)/orders/(.*?)/there</MaskUrl>
+        <MaskUrl>http://www.example.com/customers/(.*?)/orders</MaskUrl>
+        <MaskUrl>http://www.example.com/customers/(.*?)/orders/.*</MaskUrl>
+    </MaskUrls-->
+	<!--Use this block to configure filtering policy for SDK-provided strings, like error descriptions -->
+	<!--SDK>
+	    <SDKItem>
+            <detect>[\d]{3}\-[\d]{2}\-[\d]{4}</detect>
+            <replace>SSN</replace>
+        </SDKItem>
+        <SDKItem>
+            <detect>your regex</detect>
+            <replace>your replacement string</replace>
+        </SDKItem>
+    </SDK-->
+</SensitiveData>
+

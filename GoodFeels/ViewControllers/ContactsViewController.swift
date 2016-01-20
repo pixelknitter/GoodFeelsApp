@@ -20,7 +20,7 @@ class ContactsViewController: UIViewController {
     private var reuseIdentifier = "ContactCell"
     
     var contacts : Array<CNContact> = []
-    var selectedContacts = [Int: String]()
+    var selectedContacts = [String: NSIndexPath]()
     
     override func viewDidLoad() {
         contactsTableView.delegate = self
@@ -30,6 +30,14 @@ class ContactsViewController: UIViewController {
         backView.tableView = contactsTableView.backgroundView
         
         contacts = GoodFeelsClient.sharedInstance.contacts()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !selectedContacts.isEmpty {
+            animateButtonUp()
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -62,9 +70,9 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func sendText(sender: UIButton) {
-        if GoodFeelsClient.sharedInstance.canSendText() && !selectedContacts.isEmpty {
+        if !selectedContacts.isEmpty {
             let controller = GoodFeelsClient.sharedInstance.configuredMessageComposeViewController(
-                Array(selectedContacts.values),
+                Array(selectedContacts.keys),
                 textBody: GoodFeelsClient.sharedInstance.selectedMessage)
             self.presentViewController(controller, animated: true, completion: nil)
         } else {
@@ -89,16 +97,16 @@ extension ContactsViewController : UITableViewDelegate {
                 cell.selected = false
                 cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
                 
+                let contact = contacts[indexPath.row]
+                let labeledValue = contact.phoneNumbers[0] as CNLabeledValue // maybe choose Main Label or Mobile
+                let phoneNumber = labeledValue.value as! CNPhoneNumber
+                
                 if cell.accessoryType == .None {    // remove phone # from list
                     print("deselect row: \(indexPath.row)")
-                    selectedContacts.removeValueForKey(indexPath.row)
+                    selectedContacts.removeValueForKey(phoneNumber.stringValue)
                     print("selected contact count: \(selectedContacts.count)")
                 } else {                            // add phone # to list
-                    let contact = contacts[indexPath.row]
-                    let labeledValue = contact.phoneNumbers[0] as CNLabeledValue // maybe choose Main Label or Mobile
-                    let phoneNumber = labeledValue.value as! CNPhoneNumber
-                    
-                    selectedContacts[indexPath.row] = phoneNumber.stringValue
+                    selectedContacts[phoneNumber.stringValue] = indexPath
                     print("selected contact count: \(selectedContacts.count)")
                 }
             }
@@ -124,14 +132,10 @@ extension ContactsViewController : UITableViewDataSource {
         if let numberLabel = cell.viewWithTag(102) as? UILabel {
             let labeledValue = contact.phoneNumbers[0] as CNLabeledValue
             let phoneNumber = labeledValue.value as! CNPhoneNumber
-            
+            cell.accessoryType = (selectedContacts.keys.contains(phoneNumber.stringValue)) ? .Checkmark : . None
             numberLabel.text = phoneNumber.stringValue
         }
         
-        if cell.selected {
-            cell.selected = false
-            cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
-        }
         return cell
     }
 }

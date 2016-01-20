@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cmBaseUrl</key>
+	<string>https://apppulse-mobile-data.saas.hpe.com/hpmobilemon/</string>
+	<key>AppId</key>
+	<string>r6qnfn4kx0</string>
+</dict>
+</plist>
