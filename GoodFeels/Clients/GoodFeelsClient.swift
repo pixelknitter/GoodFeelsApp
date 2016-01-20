@@ -20,7 +20,11 @@ class GoodFeelsClient : NSObject {
     static let sharedInstance = GoodFeelsClient()
     
     private override init() {
-        userName = defaults.objectForKey("userName") as! String
+        if let name = defaults.objectForKey("userName") {
+             userName = name as! String
+        } else {
+            userName = ""
+        }
         selectedMessage = ""
         super.init()
     }
