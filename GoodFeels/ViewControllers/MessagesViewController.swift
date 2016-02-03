@@ -57,10 +57,6 @@ extension MessagesViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, shouldHighlightRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
-//    }
 }
 
 extension MessagesViewController : UITableViewDataSource {

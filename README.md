@@ -2,5 +2,5 @@
 An iOS app to spread a bit of warmth to friends
 
 ## TODO
-- Compose and send SMS
+- Add loader while collecting Contact list on thread
 - Add mobile phone identifier

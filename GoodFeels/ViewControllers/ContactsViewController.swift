@@ -70,7 +70,7 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func sendText(sender: UIButton) {
-        if !selectedContacts.isEmpty {
+        if !selectedContacts.isEmpty && GoodFeelsClient.sharedInstance.canSendText() {
             let controller = GoodFeelsClient.sharedInstance.configuredMessageComposeViewController(
                 Array(selectedContacts.keys),
                 textBody: GoodFeelsClient.sharedInstance.selectedMessage)
@@ -95,19 +95,16 @@ extension ContactsViewController : UITableViewDelegate {
         if let cell = tableView.cellForRowAtIndexPath(indexPath) {
             if cell.selected {
                 cell.selected = false
-                cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : . None
+                cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : .None
                 
-                let contact = contacts[indexPath.row]
-                let labeledValue = contact.phoneNumbers[0] as CNLabeledValue // maybe choose Main Label or Mobile
-                let phoneNumber = labeledValue.value as! CNPhoneNumber
+                let contact = contacts[indexPath.row],
+                    labeledValue = contact.phoneNumbers[0] as CNLabeledValue, // maybe choose Main Label or Mobile
+                    phoneNumber = labeledValue.value as! CNPhoneNumber
                 
                 if cell.accessoryType == .None {    // remove phone # from list
-                    print("deselect row: \(indexPath.row)")
                     selectedContacts.removeValueForKey(phoneNumber.stringValue)
-                    print("selected contact count: \(selectedContacts.count)")
                 } else {                            // add phone # to list
                     selectedContacts[phoneNumber.stringValue] = indexPath
-                    print("selected contact count: \(selectedContacts.count)")
                 }
             }
         }
@@ -125,6 +122,8 @@ extension ContactsViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = contactsTableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath)
         let contact = contacts[indexPath.row]
+        
+        cell.selectionStyle = .None
         
         if let nameLabel = cell.viewWithTag(101) as? UILabel {
             nameLabel.text = CNContactFormatter.stringFromContact(contact, style: .FullName)
