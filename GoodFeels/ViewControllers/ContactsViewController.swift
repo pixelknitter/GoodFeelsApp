@@ -18,6 +18,7 @@ class ContactsViewController: UIViewController {
     @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
     
     private var reuseIdentifier = "ContactCell"
+    private var addedContentObserver: NSObjectProtocol!
     
     var contacts : Array<CNContact> = []
     var selectedContacts = [String: NSIndexPath]()
@@ -28,6 +29,11 @@ class ContactsViewController: UIViewController {
         contactsTableView.editing = false
         
         backView.tableView = contactsTableView.backgroundView
+        addedContentObserver = NSNotificationCenter.defaultCenter().addObserverForName(ContactsManagerAddedContentNotification,
+            object: nil,
+            queue: NSOperationQueue.mainQueue()) { notification in
+                self.contentChangedNotification(notification)
+        }
         
         contacts = GoodFeelsClient.sharedInstance.contacts()
     }
@@ -136,5 +142,11 @@ extension ContactsViewController : UITableViewDataSource {
         }
         
         return cell
+    }
+}
+
+private extension ContactsViewController {
+    func contentChangedNotification(notification: NSNotification!) {
+        contactsTableView?.reloadData()
     }
 }

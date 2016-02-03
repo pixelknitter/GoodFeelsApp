@@ -15,6 +15,7 @@
 		2C818E8A1C4F75BE003AEBC1 /* HPFilter.xml in Resources */ = {isa = PBXBuildFile; fileRef = 2C818E891C4F75BE003AEBC1 /* HPFilter.xml */; };
 		2C818E8C1C4F77AE003AEBC1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C818E8B1C4F77AE003AEBC1 /* libz.tbd */; };
 		2C818E8E1C4F77D6003AEBC1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C818E8D1C4F77D6003AEBC1 /* libstdc++.tbd */; };
+		2CD5C6391C61C86A0087F761 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD5C6381C61C86A0087F761 /* Utils.swift */; };
 		2CED230F1C27B2EF008752E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CED230E1C27B2EF008752E8 /* AppDelegate.swift */; };
 		2CED23141C27B2EF008752E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23121C27B2EF008752E8 /* Main.storyboard */; };
 		2CED23161C27B2EF008752E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CED23151C27B2EF008752E8 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		2C818E891C4F75BE003AEBC1 /* HPFilter.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HPFilter.xml; sourceTree = "<group>"; };
 		2C818E8B1C4F77AE003AEBC1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		2C818E8D1C4F77D6003AEBC1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		2CD5C6381C61C86A0087F761 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		2CED230B1C27B2EF008752E8 /* GoodFeels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodFeels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CED230E1C27B2EF008752E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CED23131C27B2EF008752E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				2CED234A1C28A587008752E8 /* GoodFeels-Bridging-Header.h */,
 				2CED23331C27BBBE008752E8 /* Frameworks */,
 				2CED23221C27B458008752E8 /* AppPulse */,
+				2CD5C6381C61C86A0087F761 /* Utils.swift */,
 			);
 			name = "Supporting FIles";
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				2CED23461C28A4FC008752E8 /* NameViewController.swift in Sources */,
 				2CED23541C28C2DE008752E8 /* ContactsManager.swift in Sources */,
 				2C18772A1C3B557E00F129B7 /* MessageComposer.swift in Sources */,
+				2CD5C6391C61C86A0087F761 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
