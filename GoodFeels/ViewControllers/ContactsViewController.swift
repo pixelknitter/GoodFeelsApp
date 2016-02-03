@@ -80,7 +80,7 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func sendText(sender: UIButton) {
-        if !selectedContacts.isEmpty && GoodFeelsClient.sharedInstance.canSendText() {
+        if !selectedContacts.isEmpty {
             let controller = GoodFeelsClient.sharedInstance.configuredMessageComposeViewController(
                 Array(selectedContacts.keys),
                 textBody: GoodFeelsClient.sharedInstance.selectedMessage)
