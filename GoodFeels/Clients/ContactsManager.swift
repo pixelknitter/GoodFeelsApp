@@ -13,7 +13,6 @@ let ContactsManagerAddedContentNotification = "com.ninjasudo.GoodFeels.ContactsM
 let ContactsManagerContentUpdateNotification = "com.ninjasudo.GoodFeels.ContactsManagerContactsUpdated"
 
 class ContactsManager: NSObject {
-    var contacts = [CNContact]()
     private let contactStore = CNContactStore()
     private let keysToFetch = [CNContactFormatter.descriptorForRequiredKeysForStyle(CNContactFormatterStyle.FullName), CNContactPhoneNumbersKey]
     private let concurrentContactsQueue = dispatch_queue_create(
@@ -38,9 +37,9 @@ class ContactsManager: NSObject {
             do {
                 try self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch)) {
                     (contact, cursor) -> Void in
-                    if !contact.phoneNumbers.isEmpty && !self.contacts.contains(contact) {
+                    if !contact.phoneNumbers.isEmpty && !GoodFeelsClient.sharedInstance.contacts.contains(contact) {
                         // TODO filter by phone labels "Mobile" & "Main"
-                        self.contacts.append(contact)
+                        GoodFeelsClient.sharedInstance.contacts.append(contact)
                     }
                 }
             }

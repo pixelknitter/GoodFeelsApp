@@ -18,6 +18,7 @@ class GoodFeelsClient : NSObject {
     
     var userName : String
     var selectedMessage : String
+    var contacts : Array<CNContact>
 
     static let sharedInstance = GoodFeelsClient()
     
@@ -28,6 +29,7 @@ class GoodFeelsClient : NSObject {
             userName = ""
         }
         selectedMessage = ""
+        contacts = []
         super.init()
     }
     
@@ -58,8 +60,8 @@ class GoodFeelsClient : NSObject {
     
     // Contact Manager
     
-    func contacts() -> Array<CNContact> {
-        return contactManager.fetchUnifiedContacts()
+    func fetchContacts() {
+        contactManager.fetchUnifiedContacts()
     }
     
     // Message Manager

@@ -35,7 +35,11 @@ class ContactsViewController: UIViewController {
                 self.contentChangedNotification(notification)
         }
         
-        contacts = GoodFeelsClient.sharedInstance.contacts()
+        if GoodFeelsClient.sharedInstance.contacts.count > 0 {
+            contacts = GoodFeelsClient.sharedInstance.contacts
+        } else {
+            // Load Progress HUD
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -147,6 +151,7 @@ extension ContactsViewController : UITableViewDataSource {
 
 private extension ContactsViewController {
     func contentChangedNotification(notification: NSNotification!) {
+        contacts = GoodFeelsClient.sharedInstance.contacts
         contactsTableView?.reloadData()
     }
 }
