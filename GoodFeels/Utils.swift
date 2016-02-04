@@ -34,7 +34,5 @@ func crashStackOverflow() {
     // go faster
     let myIntegers = Array.init(count: 2048, repeatedValue: 0)
     
-    print(myIntegers)
-    
     crashStackOverflow()
 }
