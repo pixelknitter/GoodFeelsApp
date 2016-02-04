@@ -48,6 +48,7 @@ class ContactsManager: NSObject {
             dispatch_async(GlobalMainQueue) {
                 self.postContentAddedNotification()
             }
+            // FIXED stack overflow in a thread
         }
     }
     

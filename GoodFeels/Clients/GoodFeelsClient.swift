@@ -23,6 +23,7 @@ class GoodFeelsClient : NSObject {
     static let sharedInstance = GoodFeelsClient()
     
     private override init() {
+        // FIXED SegFault on first app launch
         if let name = defaults.objectForKey("userName") {
              userName = name as! String
         } else {

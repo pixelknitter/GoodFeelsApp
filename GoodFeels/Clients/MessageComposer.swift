@@ -31,5 +31,6 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         // Maybe do other stuff: send to Messages Screen, etc
         controller.dismissViewControllerAnimated(true, completion: nil)
+        // FIXED Stack OverFlow
     }
 }

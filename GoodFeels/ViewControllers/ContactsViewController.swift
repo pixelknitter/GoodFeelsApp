@@ -80,6 +80,7 @@ class ContactsViewController: UIViewController {
     }
     
     @IBAction func sendText(sender: UIButton) {
+        // FIXED SegFault when trying to send SMS from non-capable devices
         if !selectedContacts.isEmpty && GoodFeelsClient.sharedInstance.canSendText() {
             let controller = GoodFeelsClient.sharedInstance.configuredMessageComposeViewController(
                 Array(selectedContacts.keys),
