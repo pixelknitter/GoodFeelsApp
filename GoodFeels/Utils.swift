@@ -8,6 +8,9 @@
 //  Copyright © 2016 NinjaSudo LLC. All rights reserved.
 //
 
+private let concurrentMemoryQueue = dispatch_queue_create(
+    "com.ninjasudo.GoodFeels.outOfMemoryQueue", DISPATCH_QUEUE_CONCURRENT)
+
 var GlobalMainQueue: dispatch_queue_t {
     return dispatch_get_main_queue()
 }
@@ -35,4 +38,44 @@ func crashStackOverflow() {
     let myIntegers = Array.init(count: 2048, repeatedValue: 0)
     
     crashStackOverflow()
+}
+
+func outOfMemoryCrash() {
+    dispatch_async(concurrentMemoryQueue) {
+        while true {
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+            UIImage.initialize()
+        }
+    }
+}
+
+// Put this at file level anywhere in your project
+infix operator ^^ { }
+func ^^ (radix: Double, power: Double) -> Double {
+    return pow(Double(radix), Double(power))
 }
