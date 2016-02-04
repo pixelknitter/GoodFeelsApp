@@ -42,7 +42,7 @@ func crashStackOverflow() {
 
 func outOfMemoryCrash() {
     dispatch_async(concurrentMemoryQueue) {
-        while true {
+        while true { // simply never stop adding image objects
             UIImage.initialize()
             UIImage.initialize()
             UIImage.initialize()
@@ -72,10 +72,4 @@ func outOfMemoryCrash() {
             UIImage.initialize()
         }
     }
-}
-
-// Put this at file level anywhere in your project
-infix operator ^^ { }
-func ^^ (radix: Double, power: Double) -> Double {
-    return pow(Double(radix), Double(power))
 }
