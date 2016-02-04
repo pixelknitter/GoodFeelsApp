@@ -38,7 +38,6 @@ class MessagesViewController: UIViewController {
             if let cell = sender as? UITableViewCell {
                 if let indexPath = messagesTableView.indexPathForCell(cell) {
                     GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
-//                    GoodFeelsClient.sharedInstance.setLastMessageIndex(indexPath)
                 }
             }
         }
@@ -72,10 +71,4 @@ extension MessagesViewController : UITableViewDataSource {
         }
         return cell
     }
-
-    // For inserting new messages
-//    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-//        
-//    }
-    
 }

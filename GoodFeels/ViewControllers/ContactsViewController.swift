@@ -108,7 +108,7 @@ extension ContactsViewController : UITableViewDelegate {
                 cell.accessoryType = (cell.accessoryType == .None) ? .Checkmark : .None
                 
                 let contact = contacts[indexPath.row],
-                    labeledValue = contact.phoneNumbers[0] as CNLabeledValue, // maybe choose Main Label or Mobile
+                    labeledValue = contact.phoneNumbers[0] as CNLabeledValue,
                     phoneNumber = labeledValue.value as! CNPhoneNumber
                 
                 if cell.accessoryType == .None {    // remove phone # from list

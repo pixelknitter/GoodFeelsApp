@@ -29,7 +29,7 @@ class MessageManager: NSObject {
         return messages
     }
     
-    func syncChanges() -> Array<String> { // Doesn't work yet
+    func syncChanges() -> Array<String> {
         var newMessages = [String]()
         rootRef.observeEventType(.ChildAdded, withBlock: { snapshot in
                 let data = snapshot.value

@@ -38,7 +38,6 @@ class ContactsManager: NSObject {
                 try self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch)) {
                     (contact, cursor) -> Void in
                     if !contact.phoneNumbers.isEmpty && !GoodFeelsClient.sharedInstance.contacts.contains(contact) {
-                        // TODO filter by phone labels "Mobile" & "Main"
                         GoodFeelsClient.sharedInstance.contacts.append(contact)
                     }
                 }
