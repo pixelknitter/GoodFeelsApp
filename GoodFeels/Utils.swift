@@ -27,3 +27,14 @@ var GlobalUtilityQueue: dispatch_queue_t {
 var GlobalBackgroundQueue: dispatch_queue_t {
     return dispatch_get_global_queue(Int(QOS_CLASS_BACKGROUND.rawValue), 0)
 }
+
+// For Demo Purposes
+func crashStackOverflow() {
+    // Allocate some memory on the stack to make the stack overflow
+    // go faster
+    let myIntegers = Array.init(count: 2048, repeatedValue: 0)
+    
+    print(myIntegers)
+    
+    crashStackOverflow()
+}

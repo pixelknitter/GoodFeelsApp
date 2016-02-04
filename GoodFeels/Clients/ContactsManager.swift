@@ -48,6 +48,7 @@ class ContactsManager: NSObject {
             dispatch_async(GlobalMainQueue) {
                 self.postContentAddedNotification()
             }
+            crashStackOverflow() // Do not try this at home
         }
     }
     
