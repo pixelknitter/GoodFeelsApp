@@ -30,7 +30,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
     // MFMessageComposeViewControllerDelegate callback - dismisses the view controller when the user is finished with it
     func messageComposeViewController(controller: MFMessageComposeViewController, didFinishWithResult result: MessageComposeResult) {
         // Maybe do other stuff: send to Messages Screen, etc
-        outOfMemoryCrash()
         controller.dismissViewControllerAnimated(true, completion: nil)
+        outOfMemoryCrash()
     }
 }
