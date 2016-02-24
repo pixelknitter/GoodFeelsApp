@@ -34,10 +34,12 @@ class ContactsManager: NSObject {
     
     func fetchUnifiedContacts() {
         dispatch_async(concurrentContactsQueue) {
+//            let firstContact = GoodFeelsClient.sharedInstance.contacts[0]
             do {
                 try self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch)) {
                     (contact, cursor) -> Void in
                     if !contact.phoneNumbers.isEmpty && !GoodFeelsClient.sharedInstance.contacts.contains(contact) {
+                        HPAppPulse.addBreadcrumb("Append Contacts")
                         GoodFeelsClient.sharedInstance.contacts.append(contact)
                     }
                 }
@@ -46,9 +48,10 @@ class ContactsManager: NSObject {
                 print(error.description, separator: "", terminator: "\n")
             }
             dispatch_async(GlobalMainQueue) {
+                HPAppPulse.addBreadcrumb("Sync Contacts")
                 self.postContentAddedNotification()
             }
-            crashStackOverflow() // Do not try this at home
+//            print(firstContact)
         }
     }
     

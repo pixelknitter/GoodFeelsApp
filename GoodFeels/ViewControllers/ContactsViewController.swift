@@ -81,6 +81,7 @@ class ContactsViewController: UIViewController {
     
     @IBAction func sendText(sender: UIButton) {
         if !selectedContacts.isEmpty {
+            HPAppPulse.addBreadcrumb("Sending Text via Composed Message")
             let controller = GoodFeelsClient.sharedInstance.configuredMessageComposeViewController(
                 Array(selectedContacts.keys),
                 textBody: GoodFeelsClient.sharedInstance.selectedMessage)

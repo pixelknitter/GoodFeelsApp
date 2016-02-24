@@ -37,6 +37,7 @@ class MessagesViewController: UIViewController {
         if segue.identifier == "MessageSelected" {
             if let cell = sender as? UITableViewCell {
                 if let indexPath = messagesTableView.indexPathForCell(cell) {
+                    HPAppPulse.addBreadcrumb("Setting selected message")
                     GoodFeelsClient.sharedInstance.selectedMessage = messages[indexPath.row]
                 }
             }

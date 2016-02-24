@@ -41,6 +41,7 @@ class MessageManager: NSObject {
             }, withCancelBlock: { error in
                 print(error.description)
         })
+        HPAppPulse.addBreadcrumb("Sync Changes to Messages")
         return newMessages
     }
     
