@@ -23,7 +23,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
         messageComposeVC.recipients = textMessageRecipients
         messageComposeVC.body = body
-        
+        HPAppPulse.addBreadcrumb("Build Message Composition")
         return messageComposeVC
     }
     

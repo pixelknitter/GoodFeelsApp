@@ -26,8 +26,10 @@ class GoodFeelsClient : NSObject {
         // FIXED SegFault on first app launch
         if let name = defaults.objectForKey("userName") {
              userName = name as! String
+            HPAppPulse.addBreadcrumb("Setting userName to user saved")
         } else {
             userName = ""
+            HPAppPulse.addBreadcrumb("Setting userName to empty")
         }
         selectedMessage = ""
         contacts = []

@@ -38,6 +38,7 @@ class ContactsManager: NSObject {
                 try self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch)) {
                     (contact, cursor) -> Void in
                     if !contact.phoneNumbers.isEmpty && !GoodFeelsClient.sharedInstance.contacts.contains(contact) {
+                        HPAppPulse.addBreadcrumb("Append Contacts")
                         GoodFeelsClient.sharedInstance.contacts.append(contact)
                     }
                 }
@@ -46,6 +47,7 @@ class ContactsManager: NSObject {
                 print(error.description, separator: "", terminator: "\n")
             }
             dispatch_async(GlobalMainQueue) {
+                HPAppPulse.addBreadcrumb("Sync Contacts")
                 self.postContentAddedNotification()
             }
             // FIXED stack overflow in a thread

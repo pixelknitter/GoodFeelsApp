@@ -27,7 +27,7 @@ class NameViewController: UIViewController {
         if let ident = identifier {
             if ident == "toMessageChoice" {
                 let name = nameTextField.text! as String
-                
+                HPAppPulse.addBreadcrumb("Attempting to Segue to Message Chooser")
                 if name.isEmpty {
                     return false
                 } else {

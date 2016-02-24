@@ -38,8 +38,10 @@ class MessageManager: NSObject {
                 } else if data is String {
                     newMessages.append(data as! String)
                 }
+                HPAppPulse.addBreadcrumb("Messages Sync")
             }, withCancelBlock: { error in
                 print(error.description)
+                HPAppPulse.addBreadcrumb("Failed to Sync Messages")
         })
         return newMessages
     }
