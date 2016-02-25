@@ -5,6 +5,7 @@ target 'GoodFeels' do
 
 pod 'Firebase', '>= 2.5.0'
 pod 'pop', '~> 1.0'
+pod 'SDCAlertView', '~> 3.0'
 
 end
 

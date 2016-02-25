@@ -23,7 +23,7 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
         messageComposeVC.messageComposeDelegate = self  //  Make sure to set this property to self, so that the controller can be dismissed!
         messageComposeVC.recipients = textMessageRecipients
         messageComposeVC.body = body
-        HPAppPulse.addBreadcrumb("Sync Changes to Messages")
+        HPAppPulse.addBreadcrumb("Message Composition View Created")
         return messageComposeVC
     }
     
@@ -33,6 +33,5 @@ class MessageComposer: NSObject, MFMessageComposeViewControllerDelegate {
         controller.dismissViewControllerAnimated(true) { (completed) in
             HPAppPulse.addBreadcrumb("Dismissed Message View Controller")
         }
-        print(controller.body!)
     }
 }

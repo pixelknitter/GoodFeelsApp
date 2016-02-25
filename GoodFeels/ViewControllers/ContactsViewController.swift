@@ -10,6 +10,7 @@ import UIKit
 import Contacts
 import MessageUI
 import pop
+import SDCAlertView
 
 class ContactsViewController: UIViewController {
     @IBOutlet var backView: BackBoardView!
@@ -38,7 +39,7 @@ class ContactsViewController: UIViewController {
         if GoodFeelsClient.sharedInstance.contacts.count > 0 {
             contacts = GoodFeelsClient.sharedInstance.contacts
         } else {
-            // Load Progress HUD
+            // load spinner
         }
     }
     
@@ -151,8 +152,9 @@ extension ContactsViewController : UITableViewDataSource {
 }
 
 private extension ContactsViewController {
-    func contentChangedNotification(notification: NSNotification!) {
+    func contentChangedNotification(notification: NSNotification!) {        
         contacts = GoodFeelsClient.sharedInstance.contacts
         contactsTableView?.reloadData()
+        AlertController.showWithTitle("\(GoodFeelsClient.sharedInstance.contacts.count) Contacts", message: "Last Contact: \(GoodFeelsClient.sharedInstance.contacts.first?.phoneticFamilyName)", actionTitle: "OK")
     }
 }

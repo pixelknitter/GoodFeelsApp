@@ -35,6 +35,8 @@ class MessagesViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "MessageSelected" {
+            HPAppPulse.addBreadcrumb("Preload Contacts for List")
+            GoodFeelsClient.sharedInstance.fetchContacts() // load this early in the background
             if let cell = sender as? UITableViewCell {
                 if let indexPath = messagesTableView.indexPathForCell(cell) {
                     HPAppPulse.addBreadcrumb("Setting selected message")

@@ -25,6 +25,7 @@ class ContactsManager: NSObject {
         } else {
             //Refetch the keys
             let refetchedContact = try! contactStore.unifiedContactWithIdentifier(contact.identifier, keysToFetch: keysToFetch)
+            // TODO update contact in list
             print("\(refetchedContact.phoneNumbers)")
             dispatch_async(dispatch_get_main_queue()) {
                 NSNotificationCenter.defaultCenter().postNotificationName(ContactsManagerContentUpdateNotification, object: nil)
@@ -34,12 +35,11 @@ class ContactsManager: NSObject {
     
     func fetchUnifiedContacts() {
         dispatch_async(concurrentContactsQueue) {
-//            let firstContact = GoodFeelsClient.sharedInstance.contacts[0]
             do {
+                HPAppPulse.addBreadcrumb("Fetch Contacts")
                 try self.contactStore.enumerateContactsWithFetchRequest(CNContactFetchRequest(keysToFetch: self.keysToFetch)) {
                     (contact, cursor) -> Void in
                     if !contact.phoneNumbers.isEmpty && !GoodFeelsClient.sharedInstance.contacts.contains(contact) {
-                        HPAppPulse.addBreadcrumb("Append Contacts")
                         GoodFeelsClient.sharedInstance.contacts.append(contact)
                     }
                 }
@@ -48,10 +48,9 @@ class ContactsManager: NSObject {
                 print(error.description, separator: "", terminator: "\n")
             }
             dispatch_async(GlobalMainQueue) {
-                HPAppPulse.addBreadcrumb("Sync Contacts")
+                HPAppPulse.addBreadcrumb("Post Contacts Notification")
                 self.postContentAddedNotification()
             }
-//            print(firstContact)
         }
     }
     

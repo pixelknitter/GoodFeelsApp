@@ -1,13 +1,16 @@
 PODS:
   - Firebase (2.5.0)
   - pop (1.0.8)
+  - SDCAlertView (3.1.1)
 
 DEPENDENCIES:
   - Firebase (>= 2.5.0)
   - pop (~> 1.0)
+  - SDCAlertView (~> 3.0)
 
 SPEC CHECKSUMS:
   Firebase: 744617c0733b45198f9486ebd5cac64ec2d10d79
   pop: bb773ae2c791ca2629de13b347e7a8b450fa6a57
+  SDCAlertView: c912a09c702b4450720c84a11f42edab0ba23933
 
 COCOAPODS: 0.39.0
