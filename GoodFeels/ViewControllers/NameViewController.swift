@@ -15,9 +15,7 @@ class NameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // load up previously saved name
-        if (nameTextField != nil) {
-            nameTextField.text = GoodFeelsClient.sharedInstance.getName()
-        }
+        nameTextField.text = GoodFeelsClient.sharedInstance.getName()
     }
 
     override func didReceiveMemoryWarning() {

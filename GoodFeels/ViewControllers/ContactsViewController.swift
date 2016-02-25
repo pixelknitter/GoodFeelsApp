@@ -87,8 +87,6 @@ class ContactsViewController: UIViewController {
                 Array(selectedContacts.keys),
                 textBody: GoodFeelsClient.sharedInstance.selectedMessage)
             self.presentViewController(controller, animated: true, completion: nil)
-        } else {
-            print("This device cannot send SMS messages.")
         }
     }
 }

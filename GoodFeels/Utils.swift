@@ -36,7 +36,7 @@ func crashStackOverflow() {
     // Allocate some memory on the stack to make the stack overflow
     // go faster
     let myIntegers = Array.init(count: 2048, repeatedValue: 0)
-    
+    myIntegers.last
     crashStackOverflow()
 }
 
