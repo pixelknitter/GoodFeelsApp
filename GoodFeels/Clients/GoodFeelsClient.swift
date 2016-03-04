@@ -23,13 +23,8 @@ class GoodFeelsClient : NSObject {
     static let sharedInstance = GoodFeelsClient()
     
     private override init() {
-        if let name = defaults.objectForKey("userName") {
-            userName = name as! String
-            HPAppPulse.addBreadcrumb("Setting userName to user saved")
-        } else {
-            userName = ""
-            HPAppPulse.addBreadcrumb("Setting userName to empty")
-        }
+        userName = ""
+        HPAppPulse.addBreadcrumb("Setting userName to empty")
         selectedMessage = ""
         contacts = []
         super.init()
@@ -42,6 +37,8 @@ class GoodFeelsClient : NSObject {
     }
     
     func getName() -> String {
+        HPAppPulse.addBreadcrumb("Setting userName to user saved")
+        userName = defaults.objectForKey("user_Name") as! String
         return userName
     }
     
